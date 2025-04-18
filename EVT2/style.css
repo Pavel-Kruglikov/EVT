@@ -1,3 +1,4 @@
+
 @keyframes vibrate { 
   from { 
     transform: translateX(-2px); 
@@ -18,38 +19,15 @@
   }
 }
 
-@keyframes bounce { 
-  from { 
-    transform: translateY(-300px); 
-  }
-
-  20% { 
-    transform: translateY(0); 
-  }
-
-  40% { 
-    transform: translateY(-250px); 
-  }
-
-  60% { 
-    transform: translateY(0); 
-  }
-
-  75% { 
-    transform: translateY(-150px); 
-  }
-
-  85% {
-    transform: translateY(0); 
-  }
-
-  95% { 
-    transform: translateY(-60px); 
-  }
-
-  to { 
-    transform: translateY(0); 
-  }
+@keyframes bounce {
+  from { transform: translateY(-300px); }
+  20% { transform: translateY(0); }
+  40% { transform: translateY(-150px); }
+  60% { transform: translateY(0); }
+  75% { transform: translateY(-60px); }
+  85% { transform: translateY(0); }
+  95% { transform: translateY(-20px); }
+  to { transform: translateY(0); }
 }
 
 html { 
@@ -115,5 +93,5 @@ button:hover {
   position: absolute; 
   bottom: 0; 
   left: 50%; 
-  animation: bounce 3s ease-in; 
+  animation: bounce 2s cubic-bezier(0.4, 0, 0.6, 1);
 }

@@ -110,7 +110,7 @@ button:hover {
 .ball { 
   width: 50px; 
   height: 50px; 
-  background-color: blue; 
+  background-color: rgb(255, 0, 153); 
   border-radius: 50%; 
   position: absolute; 
   bottom: 0; 

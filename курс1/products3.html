@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style/style.css">
+    <link rel="stylesheet" href="./style/less.css">
+    <title>HEALTHY EYES CLINIC</title>
+    <style>
+        .btn-book {
+            padding: 15px 25px;
+            background-color: #28a745; /* Button color */
+            color: white;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            display: block; /* Make it a block element */
+            margin: 20px auto; /* Center the button */
+            text-align: center; /* Center text */
+        }
+
+        .btn-book:hover {
+            background-color: #218838; /* Darker shade on hover */
+        }
+
+        #booking-form {
+            margin-top: 20px;
+            display: none; /* Initially hidden */
+        }
+
+        #booking-form label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+
+        #booking-form input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        #booking-form button {
+            padding: 10px 20px;
+            background-color: #28a745; /* Submit button color */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #booking-form button:hover {
+            background-color: #218838; /* Darker shade on hover */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <ul class="nav-links">
+                <li><a href="./index.html">ГЛАВНАЯ</a></li>
+                <li><a href="#">УСЛУГИ</a></li>
+            </ul>
+            <div class="burger-menu" onclick="toggleMenu()">☰</div>
+        </nav>
+        
+        <div class="carousel-container">
+            <div class="carousel">
+                <div class="slide"><img src="./images/pexels.jpg" alt="Фон 1"></div>
+            </div>
+            <div class="overlay">
+                <h1 class="logo-text">HEALTHY EYES<br>CLINIC</h1>
+                <p class="description-text-logo">ЗДОРОВЬЕ ВАШИХ ГЛАЗ — НАША ПРИОРИТЕТ</p>
+            </div>
+            <button class="prev" onclick="prevSlide()">&#10094;</button>
+            <button class="next" onclick="nextSlide()">&#10095;</button>
+        </div>
+    </header>
+    <section class="con-product">
+        <div class="container">
+          <p class="text-product-mn">Запишитесь на консультацию уже сегодня и<br> позаботьтесь о здоровье своих глаз <br>на долгие годы вперёд!</p>
+          <div class="catalog" id="catalog"></div>
+          <button id="book-btn" class="btn-book">Записаться</button>
+          <div id="booking-form">
+              <h2>Форма записи</h2>
+              <form id="appointment-form">
+                  <label for="name">Имя:</label>
+                  <input type="text" id="name" name="name" required>
+                  <label for="date">Дата:</label>
+                  <input type="date" id="date" name="date" required>
+                  <label for="time">Время:</label>
+                  <input type="time" id="time" name="time" required>
+                  <button type="submit">Записаться</button>
+              </form>
+          </div>
+        </div>
+    </section>
+    
+    <script>
+        const bookButton = document.getElementById('book-btn');
+        const bookingForm = document.getElementById('booking-form');
+    
+        bookButton.addEventListener('click', () => {
+            bookingForm.style.display = bookingForm.style.display === 'none' ? 'block' : 'none';
+        });
+    
+        document.getElementById('appointment-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const name = document.getElementById('name').value;
+            const date = document.getElementById('date').value;
+            const time = document.getElementById('time').value;
+    
+            alert(`Запись на обследование для ${name} на ${date} в ${time} успешно оформлена!`);
+            bookingForm.style.display = 'none'; // Скрыть форму после отправки
+            this.reset(); // Сбросить форму
+        });
+    </script>
+    
+    <footer>
+        <div class="footer-container">
+            <div class="footer-logo">HEALTH EYES CLINIC</div>
+            <div class="footer-contacts">
+                <h3>КОНТАКТЫ</h3>
+                <p>
+                    <strong>АДРЕС:</strong>
+                    <a href="https://www.google.com/maps?q=Республика+Беларусь,+г.МИНСК,+ул.+Острошицкая,+185"
+                        target="_blank" rel="noopener noreferrer" class="con-text">
+                        РЕСПУБЛИКА БЕЛАРУСЬ, Г.МИНСК., УЛ. ОСТРОШИЦКАЯ, 185
+                    </a>
+                </p>
+                <p>
+                    <strong>ТЕЛЕФОН:</strong>
+                    <a href="tel:+375293344515" class="con-text">+375 (29) 334-45-15</a>
+                </p>
+                <p>
+                    <strong>EMAIL:</strong>
+                    <a href="mailto:healthyeys@gmail.com" class="con-text">HEALTHEYES@GMAIL.COM</a>
+                </p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 HEALTH EYES CLINIC. Все права защищены.</p>
+        </div>
+    </footer>
+    
+    <style>
+        footer {
+            background-color: #f8f9fa; /* Light background for contrast */
+            padding: 20px;
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+    
+        .footer-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+    
+        .footer-logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #005b8c; /* Teal color for branding */
+        }
+    
+        .footer-contacts {
+            margin-top: 10px;
+        }
+    
+        .footer-contacts h3 {
+            margin-bottom: 10px;
+            color: #333;
+        }
+    
+        .footer-contacts p {
+            margin: 5px 0;
+            color: #555;
+        }
+    
+        .footer-contacts a {
+            color: #005b8c; /* Teal color for links */
+            text-decoration: none;
+        }
+    
+        .footer-contacts a:hover {
+            text-decoration: underline; /* Underline on hover for better UX */
+        }
+    
+        .footer-bottom {
+            margin-top: 10px;
+            font-size: 14px;
+            color: #777;
+        }
+    
+        @media (max-width: 600px) {
+            .footer-container {
+                padding: 10px;
+            }
+    
+            .footer-logo {
+                font-size: 20px; /* Adjusted size for smaller screens */
+            }
+        }
+    </style>
+    <script src="./main.js"></script>
+</body>
+</html>
